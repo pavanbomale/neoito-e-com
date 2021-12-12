@@ -1,0 +1,40 @@
+.footer{
+    background: rgb(231, 228, 228);
+    padding: 20px 50px;
+    line-height: 1.8rem;
+    position: sticky;
+   
+    bottom: 0;
+}
+.fcontent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.input-holder{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+input{
+    border-radius: 5px;
+    border: none;
+    box-shadow: 3px 3px 7px #999;
+    padding: 5px 10px;
+}
+@media screen and  (max-width:768px){
+    .footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .input-holder{
+        flex-direction: column;
+    }
+    .smedia > ul{
+        display: flex;
+        justify-content: space-around;
+    }
+}

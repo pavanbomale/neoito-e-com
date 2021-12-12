@@ -1,0 +1,38 @@
+[
+    {
+        "id":"1",
+        "name":"Men slim-fit T-shirt",
+        "price":348,
+        "imgsrc":"/images/IMG3.jpg"
+    },
+    {
+        "id":"2",
+        "name":"Puma INTERFLEX runner",
+        "price":1859,
+        "imgsrc":"/images/IMG3.jpg"
+    },
+    {
+        "id":"3",
+        "name":"Puma Print T-shirt",
+        "price":865,
+        "imgsrc":"/images/IMG3.jpg"
+    },
+    {
+        "id":"4",
+        "name":"Men Smart Watch",
+        "price":1200,
+        "imgsrc":"/images/IMG3.jpg"
+    },
+    {
+        "id":"5",
+        "name":"Boat Bassheads 103",
+        "price":389,
+        "imgsrc":"/images/IMG3.jpg"
+    },
+    {
+        "id":"6",
+        "name":"Woodland Men SS-12 ",
+        "price":779,
+        "imgsrc":"/images/IMG3.jpg"
+    }
+]

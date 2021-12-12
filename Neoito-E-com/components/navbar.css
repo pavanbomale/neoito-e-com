@@ -1,0 +1,25 @@
+h3{
+    font-weight: 400;
+    color: #666;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #0d6efd;
+}
+a:hover{
+    text-decoration: underline;
+}
+.lists{
+    display: flex;
+    gap: 50px;
+    margin: 12px;
+}
+.navbar{
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(231, 228, 228);
+    margin-bottom: 10px;
+}

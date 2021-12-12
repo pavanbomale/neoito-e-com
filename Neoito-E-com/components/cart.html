@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/components/cart.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <div class="main container" id="main"> </div>
+    <div class="container" id="cart-checkout"> </div>
+    <div id="footer"></div>
+</body>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script>$('#navbar').load('/components/navbar.html')</script>
+<script>$('#footer').load('/components/footer.html')</script>
+
+
+
+<script>
+
+    let id = localStorage.getItem('id');
+    // console.log(id);
+    let number = localStorage.getItem('number')
+
+
+
+
+
+
+
+    let total = localStorage.getItem('totalprice');
+    // console.log(total);
+    let cart_checkout = document.getElementById('cart-checkout');
+    if (id) {
+        cart_checkout.innerHTML = `<div><a onClick="checked()" href="/components/checkout.html">Check out</a>
+        <h4>`+number+` Items in your cart</h4>
+            <h5 id="total">₹ `+ total + `</h5>
+        </div>`;
+    }
+
+    let main = document.getElementById('main');
+
+    fetch('/components/data.json').then(function (response) {
+        return response.json();
+    })
+        .then(function (data) {
+
+            for (var i = 0; i < data.length; i++) {
+
+
+
+                if (id != null && id.includes(data[i].id)) {
+
+                    let count_arr = JSON.parse(id)
+                    // console.log(typeof(count));
+                    // console.log(count_arr);
+                    let count_obj = count_arr.reduce(function (prev, cur) {
+                        prev[cur] = (prev[cur] || 0) + 1;
+                        return prev;
+                    }, {});
+                    console.log(count_obj);
+
+
+
+                    console.log('s');
+                    let card = document.createElement('div');
+                    card.innerHTML = (
+                        `<div class="card" style="width: 18rem;">
+                    <img src="`+ data[i].imgsrc + `" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">`+ data[i].name + `</h5>
+                        <div class="price-holder">
+                            <h5> ₹</h5>
+                            <h5 class="card-title price"> `+ data[i].price +' x '+ count_obj[data[i].id]+`</h5>
+                            </div>
+                            </div>
+                            </div>`
+                    );
+                    main.appendChild(card);
+                }
+            }
+        })
+
+    let title = localStorage.getItem('title');
+    let carttotal = localStorage.getItem('totalprice');
+    let imgsrc = localStorage.getItem('imgsrc');
+
+
+    if (title || carttotal || imgsrc) {
+        cartimg.setAttribute('src', imgsrc);
+        cartprice.innerHTML = '<h5>₹ ' + carttotal + '</h5>';
+        carttitle.innerHTML = title;
+    }
+    else {
+        document.getElementById('main').innerHTML = `<div id="empt" class="container">
+                <h1>Your cart is empty</h1>
+                <a href="/index.html">Start Shopping</a>
+                </div>`
+    }
+
+
+    function checked() {
+        localStorage.clear();
+    }
+
+
+
+
+</script>
+
+</html>
